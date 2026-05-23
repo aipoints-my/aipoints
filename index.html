@@ -2,301 +2,287 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 <title>AIPOINTS</title>
 
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
-
 body{
-width:100%;
-min-height:100vh;
-background:url('https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=1974&auto=format&fit=crop') no-repeat center center;
-background-size:cover;
-display:flex;
-justify-content:center;
-align-items:center;
-padding:20px;
-overflow-x:hidden;
+  margin:0;
+  font-family:Arial,sans-serif;
+  background-size:cover;
+  background-position:center;
+  background-attachment:fixed;
+  min-height:100vh;
 }
 
-.overlay{
-width:100%;
-max-width:420px;
-text-align:center;
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:rgba(255,255,255,0.10);
+  z-index:-1;
+}
+
+.page-wrap{
+  max-width:760px;
+  margin:0 auto;
+  padding:20px;
+}
+
+.topbar{
+  text-align:right;
+  margin-bottom:20px;
+}
+
+.topbar select{
+  width:160px;
+  padding:12px;
+  border-radius:14px;
+  border:none;
+  background:rgba(255,255,255,0.92);
+  font-size:18px;
+}
+
+.container{
+  max-width:560px;
+  margin:0 auto;
+  padding:10px 0 30px;
+  background:transparent;
+  border:none;
+  box-shadow:none;
 }
 
 .logo{
-width:180px;
-margin:0 auto 20px;
-display:block;
+  display:block;
+  max-width:230px;
+  margin:20px auto;
 }
 
 h1{
-font-size:58px;
-color:#ff8c00;
-margin-bottom:10px;
-font-weight:800;
-text-shadow:0 2px 10px rgba(0,0,0,0.2);
-line-height:1.1;
+  text-align:center;
+  color:#ff8c00;
+  font-size:58px;
+  margin:20px 0 10px;
+  font-weight:900;
 }
 
-.subtitle{
-font-size:22px;
-color:white;
-margin-bottom:40px;
-font-weight:700;
-text-shadow:0 2px 10px rgba(0,0,0,0.5);
+p{
+  text-align:center;
+  color:#666;
+  font-size:24px;
+  font-weight:bold;
+}
+
+input,select{
+  width:100%;
+  padding:20px;
+  margin-bottom:18px;
+  border-radius:18px;
+  border:none;
+  font-size:22px;
+  box-sizing:border-box;
+  background:rgba(255,255,255,0.88);
+}
+
+button{
+  width:100%;
+  padding:22px;
+  border:none;
+  border-radius:18px;
+  color:white;
+  font-size:24px;
+  margin-bottom:18px;
+  cursor:pointer;
+  font-weight:900;
+}
+
+.orange{background:#ff8c00}
+.green{background:#43c553}
+.blue{background:#2e8cff}
+.purple{background:#9c27b0}
+.gray{background:#777}
+
+.hidden{
+  display:none;
+}
+
+.card{
+  background:rgba(255,255,255,0.82);
+  padding:20px;
+  border-radius:20px;
+  text-align:center;
+  margin:15px 0;
+}
+
+.points{
+  font-size:60px;
+  font-weight:bold;
+  color:#ff8c00;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  background:white;
+}
+
+th,td{
+  border:1px solid #ddd;
+  padding:8px;
+}
+
+@media(max-width:600px){
+
+h1{
+  font-size:42px;
+}
+
+p{
+  font-size:18px;
+}
+
+button{
+  font-size:22px;
 }
 
 input{
-width:100%;
-padding:18px;
-margin-bottom:20px;
-border:none;
-border-radius:20px;
-font-size:20px;
-background:rgba(255,255,255,0.9);
-}
-
-button{
-width:100%;
-padding:20px;
-margin-bottom:20px;
-border:none;
-border-radius:20px;
-font-size:22px;
-font-weight:bold;
-color:white;
-cursor:pointer;
-transition:0.3s;
-}
-
-button:hover{
-transform:scale(1.02);
-}
-
-.login-btn{
-background:#ff9500;
-}
-
-.register-btn{
-background:#48c157;
-}
-
-.staff-btn{
-background:#2d8cf0;
-}
-
-.boss-btn{
-background:#9c27b0;
-}
-
-.logout-btn{
-background:#777;
-}
-
-.points-box{
-margin:25px 0;
-padding:30px;
-background:rgba(255,255,255,0.85);
-border-radius:25px;
-}
-
-.points-number{
-font-size:80px;
-font-weight:bold;
-color:#ff9500;
-}
-
-.language-box{
-position:fixed;
-top:20px;
-right:20px;
-z-index:999;
-}
-
-select{
-padding:15px 20px;
-font-size:18px;
-border-radius:15px;
-border:none;
-background:white;
-}
-
-.hidden{
-display:none;
-}
-
-.customer-card{
-background:rgba(255,255,255,0.85);
-padding:15px;
-border-radius:15px;
-margin-bottom:10px;
-text-align:left;
-}
-
-.customer-card button{
-margin-top:10px;
-padding:12px;
-font-size:16px;
-}
-
-@media(max-width:768px){
-
-body{
-padding:25px;
-}
-
-h1{
-font-size:42px;
-}
-
-.logo{
-width:150px;
-}
-
-button{
-font-size:20px;
-padding:18px;
-}
-
-.points-number{
-font-size:60px;
-}
-
-.subtitle{
-font-size:18px;
+  font-size:20px;
 }
 
 }
-
 </style>
 </head>
 
 <body>
 
-<div class="language-box">
+<div class="page-wrap">
+
+<div class="topbar">
 <select id="languageSelect">
-<option value="en">English</option>
-<option value="cn">中文</option>
+<option>English</option>
+<option>中文</option>
 </select>
 </div>
 
-<div class="overlay">
+<div class="container" id="loginPage">
 
-<img src="https://i.imgur.com/4AiXzf8.png" class="logo" id="brandLogo">
+<img id="headerLogo1" class="logo hidden">
 
-<div id="mainPage">
+<h1>CUSTOMER REWARDS</h1>
 
-<h1 id="titleText">
-CUSTOMER REWARDS
-</h1>
+<p>AIPOINTS SYSTEM</p>
 
-<div class="subtitle" id="subtitleText">
-AIPOINTS SYSTEM
+<input type="text" id="loginPhone" placeholder="Customer Phone">
+
+<button class="orange" onclick="login()">Customer Login</button>
+
+<button class="green" onclick="showRegisterPage()">Register Member</button>
+
+<button class="blue" onclick="showStaffLogin()">Staff Panel</button>
+
+<button class="purple" onclick="showBossLogin()">Boss Panel</button>
+
 </div>
+
+<div class="container hidden" id="registerPage">
+
+<h1>Register Member</h1>
+
+<input type="text" id="regName" placeholder="Customer Name">
+
+<input type="text" id="regPhone" placeholder="Phone Number">
+
+<input type="email" id="regEmail" placeholder="Email">
+
+<button class="green" onclick="registerMember()">Submit Register</button>
+
+<button class="gray" onclick="backToLogin()">Back</button>
+
+</div>
+
+<div class="container hidden" id="dashboardPage">
+
+<h1>Member Dashboard</h1>
+
+<div class="card">
+<p>Current Points</p>
+<div class="points" id="pointsText">0</div>
+</div>
+
+<p id="memberInfo"></p>
+
+<button class="green" id="memberWhatsappBtn">Open WhatsApp</button>
+
+<button class="gray" onclick="logout()">Logout</button>
+
+</div>
+
+<div class="container hidden" id="staffLoginPage">
+
+<h1>Staff Login</h1>
+
+<input type="password" id="staffPasswordInput" placeholder="Staff Password">
+
+<button class="blue" onclick="staffLogin()">Login Staff</button>
+
+<button class="gray" onclick="backToLogin()">Back</button>
+
+</div>
+
+<div class="container hidden" id="staffPage">
+
+<h1>Staff Panel</h1>
 
 <input type="text" id="customerPhone" placeholder="Customer Phone">
 
-<button class="login-btn" onclick="customerLogin()" id="loginText">
-Customer Login
-</button>
-
-<button class="register-btn" onclick="registerMember()" id="registerText">
-Register Member
-</button>
-
-<button class="staff-btn" onclick="showStaffPanel()" id="staffText">
-Staff Panel
-</button>
-
-<button class="boss-btn" onclick="showBossPanel()" id="bossText">
-Boss Panel
-</button>
-
-</div>
-
-<div id="memberPage" class="hidden">
-
-<h1>MEMBER REWARDS</h1>
-
-<div class="points-box">
-<div>Current Points</div>
-<div class="points-number" id="memberPoints">0</div>
-</div>
-
-<div id="memberInfo"></div>
-
-<button class="logout-btn" onclick="logout()">
-Logout
-</button>
-
-</div>
-
-<div id="staffPage" class="hidden">
-
-<h1>STAFF PANEL</h1>
-
-<input type="password" id="staffPassword" placeholder="Staff Password">
-
-<button class="staff-btn" onclick="staffLogin()">
-Login Staff
-</button>
-
-<div id="staffAction" class="hidden">
-
-<input type="text" id="staffCustomerPhone" placeholder="Customer Phone">
-
-<input type="number" id="staffPoints" placeholder="Points">
-
-<select id="pointAction">
+<select id="staffAction">
 <option value="add">Add Points</option>
-<option value="redeem">Redeem Points</option>
+<option value="deduct">Redeem Points</option>
 </select>
 
-<button class="register-btn" onclick="updatePoints()">
-Submit
-</button>
+<input type="number" id="pointAmount" placeholder="Points">
+
+<button class="blue" onclick="processPoints()">Submit</button>
+
+<div class="card hidden" id="staffResult">
+<p id="staffCustomerName"></p>
+<div class="points" id="staffCustomerPoints">0</div>
+</div>
+
+<button class="gray" onclick="logout()">Logout</button>
 
 </div>
 
-<button class="logout-btn" onclick="backHome()">
-Back
-</button>
+<div class="container hidden" id="bossLoginPage">
+
+<h1>Boss Login</h1>
+
+<input type="password" id="bossPasswordInput" placeholder="Boss Password">
+
+<button class="purple" onclick="bossLogin()">Login Boss</button>
+
+<button class="gray" onclick="backToLogin()">Back</button>
 
 </div>
 
-<div id="bossPage" class="hidden">
+<div class="container hidden" id="bossPage">
 
-<h1>BOSS PANEL</h1>
+<h1>Boss Dashboard</h1>
 
-<input type="password" id="bossPassword" placeholder="Boss Password">
+<button class="purple" onclick="loadAllMembers()">Refresh Customer List</button>
 
-<button class="boss-btn" onclick="bossLogin()">
-Login Boss
-</button>
+<button class="green" onclick="downloadCSV()">Download Customer CSV</button>
 
-<div id="bossAction" class="hidden">
+<input type="text" id="bossCustomerPhone" placeholder="Customer Phone">
 
-<button class="register-btn" onclick="downloadCSV()">
-Download Customer CSV
-</button>
+<input type="number" id="bossNewPoints" placeholder="Set New Points">
 
-<div id="customerList"></div>
+<button class="purple" onclick="setPoints()">Update Points</button>
 
-</div>
+<div id="customerTable"></div>
 
-<button class="logout-btn" onclick="backHome()">
-Back
-</button>
+<button class="gray" onclick="logout()">Logout</button>
 
 </div>
 
@@ -308,246 +294,325 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/fireba
 
 import {
 getFirestore,
-collection,
-addDoc,
-getDocs,
-query,
-where,
+doc,
+setDoc,
+getDoc,
 updateDoc,
-doc
+collection,
+getDocs
 }
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const firebaseConfig = {
-apiKey: "AIzaSyAO5EhryOfZIF2Ri4uYUZHxbR_umGfbYak",
+
+apiKey: "YOUR API KEY",
 authDomain: "aipoints-859ea.firebaseapp.com",
 projectId: "aipoints-859ea",
-storageBucket: "aipoints-859ea.firebasestorage.app",
+storageBucket: "aipoints-859ea.appspot.com",
 messagingSenderId: "472204890064",
-appId: "1:472204890064:web:e47efde9f874981ac7f3d5",
-measurementId: "G-D9N4R5H7EY"
+appId: "1:472204890064:web:e47efde9f874981ac7f3d5"
+
 };
 
 const app = initializeApp(firebaseConfig);
 
 const db = getFirestore(app);
 
-window.registerMember = async function(){
+function hideAll(){
 
-let phone=document.getElementById("customerPhone").value.trim();
+[
+"loginPage",
+"registerPage",
+"dashboardPage",
+"staffLoginPage",
+"staffPage",
+"bossLoginPage",
+"bossPage"
 
-if(phone==""){
-alert("Please enter phone");
-return;
-}
+].forEach(id=>{
 
-if(!phone.startsWith("60")){
-phone="60"+phone;
-}
-
-const q=query(collection(db,"customers"),where("phone","==",phone));
-
-const snapshot=await getDocs(q);
-
-if(!snapshot.empty){
-alert("Phone already registered");
-return;
-}
-
-await addDoc(collection(db,"customers"),{
-phone:phone,
-points:0
-});
-
-window.open("https://wa.me/"+phone);
-
-alert("Member Registered");
-
-}
-
-window.customerLogin = async function(){
-
-let phone=document.getElementById("customerPhone").value.trim();
-
-if(!phone.startsWith("60")){
-phone="60"+phone;
-}
-
-const q=query(collection(db,"customers"),where("phone","==",phone));
-
-const snapshot=await getDocs(q);
-
-if(snapshot.empty){
-alert("Customer not found");
-return;
-}
-
-snapshot.forEach((docSnap)=>{
-
-const data=docSnap.data();
-
-document.getElementById("mainPage").classList.add("hidden");
-
-document.getElementById("memberPage").classList.remove("hidden");
-
-document.getElementById("memberPoints").innerText=data.points;
-
-document.getElementById("memberInfo").innerHTML=`
-Phone: ${data.phone}
-`;
+document.getElementById(id).classList.add("hidden");
 
 });
 
 }
 
-window.showStaffPanel=function(){
+window.showRegisterPage=function(){
 
-document.getElementById("mainPage").classList.add("hidden");
+hideAll();
 
-document.getElementById("staffPage").classList.remove("hidden");
-
-}
-
-window.staffLogin=function(){
-
-const pass=document.getElementById("staffPassword").value;
-
-if(pass=="1234"){
-
-document.getElementById("staffAction").classList.remove("hidden");
-
-}else{
-
-alert("Wrong Password");
+document.getElementById("registerPage").classList.remove("hidden");
 
 }
 
-}
+window.showStaffLogin=function(){
 
-window.updatePoints=async function(){
+hideAll();
 
-let phone=document.getElementById("staffCustomerPhone").value.trim();
-
-if(!phone.startsWith("60")){
-phone="60"+phone;
-}
-
-const points=parseInt(document.getElementById("staffPoints").value);
-
-const action=document.getElementById("pointAction").value;
-
-const q=query(collection(db,"customers"),where("phone","==",phone));
-
-const snapshot=await getDocs(q);
-
-snapshot.forEach(async(d)=>{
-
-const current=d.data().points;
-
-let final=current;
-
-if(action=="add"){
-final=current+points;
-}else{
-final=current-points;
-}
-
-await updateDoc(doc(db,"customers",d.id),{
-points:final
-});
-
-alert("Points Updated");
-
-});
+document.getElementById("staffLoginPage").classList.remove("hidden");
 
 }
 
-window.showBossPanel=function(){
+window.showBossLogin=function(){
 
-document.getElementById("mainPage").classList.add("hidden");
+hideAll();
 
-document.getElementById("bossPage").classList.remove("hidden");
-
-}
-
-window.bossLogin=async function(){
-
-const pass=document.getElementById("bossPassword").value;
-
-if(pass!="8888"){
-alert("Wrong Password");
-return;
-}
-
-document.getElementById("bossAction").classList.remove("hidden");
-
-loadCustomers();
+document.getElementById("bossLoginPage").classList.remove("hidden");
 
 }
 
-async function loadCustomers(){
+window.backToLogin=function(){
 
-const snapshot=await getDocs(collection(db,"customers"));
+hideAll();
 
-let html="";
-
-snapshot.forEach((d)=>{
-
-const data=d.data();
-
-const whatsapp=`https://wa.me/${data.phone}?text=Your current points is ${data.points}`;
-
-html+=`
-<div class="customer-card">
-<div><b>Phone:</b> ${data.phone}</div>
-<div><b>Points:</b> ${data.points}</div>
-<button class="staff-btn" onclick="window.open('${whatsapp}')">
-WhatsApp Customer
-</button>
-</div>
-`;
-
-});
-
-document.getElementById("customerList").innerHTML=html;
-
-}
-
-window.downloadCSV=async function(){
-
-const snapshot=await getDocs(collection(db,"customers"));
-
-let csv="Phone,Points\n";
-
-snapshot.forEach((d)=>{
-
-const data=d.data();
-
-csv+=`${data.phone},${data.points}\n`;
-
-});
-
-const blob=new Blob([csv],{type:"text/csv"});
-
-const a=document.createElement("a");
-
-a.href=URL.createObjectURL(blob);
-
-a.download="customers.csv";
-
-a.click();
+document.getElementById("loginPage").classList.remove("hidden");
 
 }
 
 window.logout=function(){
 
-location.reload();
+hideAll();
+
+document.getElementById("loginPage").classList.remove("hidden");
 
 }
 
-window.backHome=function(){
+window.registerMember=async function(){
 
-location.reload();
+let name=document.getElementById("regName").value;
+
+let phone=document.getElementById("regPhone").value;
+
+let email=document.getElementById("regEmail").value;
+
+if(!name||!phone){
+
+alert("Please fill all info");
+
+return;
+
+}
+
+await setDoc(doc(db,"members",phone),{
+
+name:name,
+phone:phone,
+email:email,
+points:0
+
+});
+
+alert("Member Registered");
+
+backToLogin();
+
+}
+
+window.login=async function(){
+
+let phone=document.getElementById("loginPhone").value;
+
+const docRef=doc(db,"members",phone);
+
+const docSnap=await getDoc(docRef);
+
+if(!docSnap.exists()){
+
+alert("Member not found");
+
+return;
+
+}
+
+let member=docSnap.data();
+
+hideAll();
+
+document.getElementById("dashboardPage").classList.remove("hidden");
+
+document.getElementById("pointsText").innerText=member.points||0;
+
+document.getElementById("memberInfo").innerText=
+member.name+" | "+member.phone;
+
+document.getElementById("memberWhatsappBtn").onclick=function(){
+
+window.open(
+"https://wa.me/"+member.phone+
+"?text="+encodeURIComponent(
+"Hi, your AIPOINTS membership points are "+member.points
+),
+"_blank"
+);
+
+}
+
+}
+
+window.staffLogin=function(){
+
+if(document.getElementById("staffPasswordInput").value=="1234"){
+
+hideAll();
+
+document.getElementById("staffPage").classList.remove("hidden");
+
+}else{
+
+alert("Wrong Password");
+
+}
+
+}
+
+window.processPoints=async function(){
+
+let phone=document.getElementById("customerPhone").value;
+
+let amount=Number(document.getElementById("pointAmount").value);
+
+let action=document.getElementById("staffAction").value;
+
+const docRef=doc(db,"members",phone);
+
+const docSnap=await getDoc(docRef);
+
+if(!docSnap.exists()){
+
+alert("Customer not found");
+
+return;
+
+}
+
+let member=docSnap.data();
+
+let points=member.points||0;
+
+if(action=="add"){
+
+points+=amount;
+
+}else{
+
+points-=amount;
+
+}
+
+await updateDoc(docRef,{
+
+points:points
+
+});
+
+document.getElementById("staffResult").classList.remove("hidden");
+
+document.getElementById("staffCustomerName").innerText=member.name;
+
+document.getElementById("staffCustomerPoints").innerText=points;
+
+alert("Updated");
+
+}
+
+window.bossLogin=async function(){
+
+if(document.getElementById("bossPasswordInput").value!="8888"){
+
+alert("Wrong Password");
+
+return;
+
+}
+
+hideAll();
+
+document.getElementById("bossPage").classList.remove("hidden");
+
+loadAllMembers();
+
+}
+
+window.loadAllMembers=async function(){
+
+const querySnapshot=await getDocs(collection(db,"members"));
+
+let html=`
+<table>
+<tr>
+<th>Name</th>
+<th>Phone</th>
+<th>Email</th>
+<th>Points</th>
+</tr>
+`;
+
+querySnapshot.forEach((docItem)=>{
+
+let m=docItem.data();
+
+html+=`
+<tr>
+<td>${m.name||""}</td>
+<td>${m.phone||""}</td>
+<td>${m.email||""}</td>
+<td>${m.points||0}</td>
+</tr>
+`;
+
+});
+
+html+="</table>";
+
+document.getElementById("customerTable").innerHTML=html;
+
+}
+
+window.setPoints=async function(){
+
+let phone=document.getElementById("bossCustomerPhone").value;
+
+let newPoints=Number(document.getElementById("bossNewPoints").value);
+
+await updateDoc(doc(db,"members",phone),{
+
+points:newPoints
+
+});
+
+alert("Points Updated");
+
+loadAllMembers();
+
+}
+
+window.downloadCSV=async function(){
+
+const querySnapshot=await getDocs(collection(db,"members"));
+
+let csv="Name,Phone,Email,Points\n";
+
+querySnapshot.forEach((docItem)=>{
+
+let m=docItem.data();
+
+csv+=`${m.name},${m.phone},${m.email},${m.points}\n`;
+
+});
+
+let blob=new Blob([csv],{
+
+type:"text/csv"
+
+});
+
+let link=document.createElement("a");
+
+link.href=URL.createObjectURL(blob);
+
+link.download="aipoints-customers.csv";
+
+link.click();
 
 }
 
