@@ -24,7 +24,6 @@ display:flex;
 justify-content:center;
 align-items:center;
 padding:20px;
-position:relative;
 overflow-x:hidden;
 }
 
@@ -46,13 +45,15 @@ color:#ff8c00;
 margin-bottom:10px;
 font-weight:800;
 text-shadow:0 2px 10px rgba(0,0,0,0.2);
+line-height:1.1;
 }
 
 .subtitle{
-font-size:20px;
-color:#555;
+font-size:22px;
+color:white;
 margin-bottom:40px;
-font-weight:600;
+font-weight:700;
+text-shadow:0 2px 10px rgba(0,0,0,0.5);
 }
 
 input{
@@ -150,6 +151,10 @@ font-size:16px;
 
 @media(max-width:768px){
 
+body{
+padding:25px;
+}
+
 h1{
 font-size:42px;
 }
@@ -165,6 +170,10 @@ padding:18px;
 
 .points-number{
 font-size:60px;
+}
+
+.subtitle{
+font-size:18px;
 }
 
 }
@@ -187,10 +196,12 @@ font-size:60px;
 
 <div id="mainPage">
 
-<h1 id="titleText">Milk Tea Demo</h1>
+<h1 id="titleText">
+CUSTOMER REWARDS
+</h1>
 
 <div class="subtitle" id="subtitleText">
-Wonderful Pineapple Point System
+AIPOINTS SYSTEM
 </div>
 
 <input type="text" id="customerPhone" placeholder="Customer Phone">
@@ -215,7 +226,7 @@ Boss Panel
 
 <div id="memberPage" class="hidden">
 
-<h1>Member Dashboard</h1>
+<h1>MEMBER REWARDS</h1>
 
 <div class="points-box">
 <div>Current Points</div>
@@ -232,7 +243,7 @@ Logout
 
 <div id="staffPage" class="hidden">
 
-<h1>Staff Panel</h1>
+<h1>STAFF PANEL</h1>
 
 <input type="password" id="staffPassword" placeholder="Staff Password">
 
@@ -265,7 +276,7 @@ Back
 
 <div id="bossPage" class="hidden">
 
-<h1>Boss Dashboard</h1>
+<h1>BOSS PANEL</h1>
 
 <input type="password" id="bossPassword" placeholder="Boss Password">
 
