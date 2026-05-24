@@ -6,50 +6,19 @@
 <title>AIPOINTS DEMO</title>
 
 <style>
-body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:url('https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=1974&auto=format&fit=crop') center/cover fixed;
-  min-height:100vh;
-}
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background:rgba(255,255,255,.10);
-  z-index:-1;
-}
+body{margin:0;font-family:Arial,sans-serif;background:url('https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=1974&auto=format&fit=crop') center/cover fixed;min-height:100vh;}
+body::before{content:"";position:fixed;inset:0;background:rgba(255,255,255,.10);z-index:-1;}
 .page-wrap{max-width:760px;margin:0 auto;padding:20px;}
 .topbar{text-align:right;margin-bottom:20px;}
 .topbar select{width:170px;padding:12px;border-radius:14px;border:none;background:rgba(255,255,255,.92);font-size:18px;}
-.container{max-width:560px;margin:0 auto;padding:10px 0 30px;background:transparent;border:none;box-shadow:none;}
+.container{max-width:560px;margin:0 auto;padding:10px 0 30px;background:transparent;}
 .logo{display:block;max-width:220px;max-height:170px;margin:20px auto;object-fit:contain;}
 h1{text-align:center;color:#ff8c00;font-size:52px;margin:20px 0 10px;font-weight:900;text-shadow:0 2px 8px rgba(255,255,255,.7);}
 h2{text-align:center;color:#ff8c00;font-size:30px;margin:18px 0;font-weight:900;text-shadow:0 2px 8px rgba(255,255,255,.7);}
 p{text-align:center;color:#666;font-size:22px;font-weight:bold;text-shadow:0 2px 8px rgba(255,255,255,.7);}
-input,select,textarea{
-  width:100%;
-  padding:18px;
-  margin-bottom:16px;
-  border-radius:16px;
-  border:none;
-  font-size:20px;
-  box-sizing:border-box;
-  background:rgba(255,255,255,.9);
-}
+input,select,textarea{width:100%;padding:18px;margin-bottom:16px;border-radius:16px;border:none;font-size:20px;box-sizing:border-box;background:rgba(255,255,255,.9);}
 textarea{min-height:100px;resize:vertical;}
-button{
-  width:100%;
-  padding:20px;
-  border:none;
-  border-radius:16px;
-  color:white;
-  font-size:22px;
-  margin-bottom:16px;
-  cursor:pointer;
-  font-weight:900;
-  box-shadow:0 6px 16px rgba(0,0,0,.15);
-}
+button{width:100%;padding:20px;border:none;border-radius:16px;color:white;font-size:22px;margin-bottom:16px;cursor:pointer;font-weight:900;box-shadow:0 6px 16px rgba(0,0,0,.15);}
 .orange{background:#ff8c00}.green{background:#43c553}.blue{background:#2e8cff}.purple{background:#9c27b0}.gray{background:#777}.red{background:#e53935}.wa{background:#25D366}
 .hidden{display:none}
 .card{background:rgba(255,255,255,.86);padding:20px;border-radius:20px;text-align:center;margin:15px 0;}
@@ -60,14 +29,7 @@ button{
 table{width:100%;border-collapse:collapse;background:rgba(255,255,255,.92);font-size:13px;}
 th,td{border:1px solid #ddd;padding:8px;color:#333;}
 th{background:#fff3d8;}
-@media(max-width:600px){
-  .page-wrap{padding:14px;}
-  h1{font-size:38px;}
-  h2{font-size:26px;}
-  p{font-size:18px;}
-  button{font-size:20px;padding:18px;}
-  input,select,textarea{font-size:18px;}
-}
+@media(max-width:600px){.page-wrap{padding:14px;}h1{font-size:38px;}h2{font-size:26px;}p{font-size:18px;}button{font-size:20px;padding:18px;}input,select,textarea{font-size:18px;}}
 </style>
 </head>
 
@@ -87,9 +49,7 @@ th{background:#fff3d8;}
 <img id="logo1" class="logo hidden">
 <h1>CUSTOMER REWARDS</h1>
 <p>AIPOINTS SYSTEM</p>
-
 <input type="text" id="loginPhone" placeholder="Customer Phone">
-
 <button class="orange" onclick="login()" id="btnLogin">Customer Login</button>
 <button class="green" onclick="showRegisterPage()" id="btnRegister">Register Member</button>
 <button class="blue" onclick="showStaffPage()" id="btnStaff">Staff Panel Demo</button>
@@ -99,16 +59,13 @@ th{background:#fff3d8;}
 <div class="container hidden" id="registerPage">
 <img id="logo2" class="logo hidden">
 <h1 id="registerTitle">Register Member</h1>
-
 <input type="text" id="regName" placeholder="Customer Name">
 <input type="text" id="regPhone" placeholder="Phone Number">
 <input type="email" id="regEmail" placeholder="Email">
-
 <label class="checkbox-row">
 <input type="checkbox" id="consentCheckbox">
 <span id="consentText">I agree to allow this business to collect and use my information for membership points and customer service purposes.</span>
 </label>
-
 <button class="green" onclick="registerMember()" id="btnSubmitRegister">Submit Register</button>
 <button class="gray" onclick="backToLogin()" id="btnBack1">Back</button>
 </div>
@@ -116,12 +73,10 @@ th{background:#fff3d8;}
 <div class="container hidden" id="dashboardPage">
 <img id="logo3" class="logo hidden">
 <h1 id="memberTitle">Member Dashboard</h1>
-
 <div class="card">
 <p id="currentPointsText">Current Points</p>
 <div class="points" id="pointsText">0</div>
 </div>
-
 <p id="memberInfo"></p>
 <button class="wa" id="memberWhatsappBtn">Open WhatsApp</button>
 <button class="gray" onclick="logout()" id="btnLogout1">Logout</button>
@@ -130,23 +85,17 @@ th{background:#fff3d8;}
 <div class="container hidden" id="staffPage">
 <img id="logo5" class="logo hidden">
 <h1 id="staffPanelTitle">Staff Panel Demo</h1>
-
 <input type="text" id="customerPhone" placeholder="Customer Phone">
-
 <select id="staffAction">
 <option value="add">Add Points</option>
 <option value="deduct">Redeem Points</option>
 </select>
-
 <input type="number" id="pointAmount" placeholder="Points">
-
 <button class="blue" onclick="processPoints()" id="btnSubmitPoints">Submit</button>
-
 <div class="card hidden" id="staffResult">
 <p id="staffCustomerName"></p>
 <div class="points" id="staffCustomerPoints">0</div>
 </div>
-
 <button class="gray" onclick="logout()" id="btnLogout2">Logout</button>
 </div>
 
@@ -156,7 +105,13 @@ th{background:#fff3d8;}
 
 <button class="purple" onclick="loadAllMembers()" id="btnRefresh">Refresh Customer List</button>
 <button class="green" onclick="downloadCSV()" id="btnCSV">Download Customer CSV</button>
-<button class="wa" onclick="sendToAllCustomers()" id="btnSendAll">Send WhatsApp To All Customers</button>
+
+<div class="card">
+<h2>Semi Auto WhatsApp</h2>
+<p class="small" id="sendProgress">Ready to send customer WhatsApp one by one.</p>
+<button class="wa" onclick="sendNextCustomer()" id="btnNextWA">Next Customer WhatsApp</button>
+<button class="blue" onclick="resetSendProgress()">Reset Sending Progress</button>
+</div>
 
 <input type="text" id="bossCustomerPhone" placeholder="Customer Phone">
 <input type="number" id="bossNewPoints" placeholder="Set New Points">
@@ -172,18 +127,14 @@ th{background:#fff3d8;}
 
 <div class="card">
 <h2 id="brandSettingTitle">Brand Settings</h2>
-
 <input type="file" id="logoUpload" accept="image/*">
 <button class="purple" onclick="uploadLogo()" id="btnUploadLogo">Upload Logo</button>
-
 <input type="file" id="bgUpload" accept="image/*">
 <button class="purple" onclick="uploadBackground()" id="btnUploadBg">Upload Background Photo</button>
-
 <button class="red" onclick="clearBranding()" id="btnClearBrand">Clear Logo & Background</button>
 </div>
 
 <div id="customerTable"></div>
-
 <button class="gray" onclick="logout()" id="btnLogout3">Logout</button>
 </div>
 
@@ -208,6 +159,7 @@ const db = getFirestore(app);
 
 let currentLang = "ms";
 let allMembers = [];
+let sendIndex = 0;
 
 let appSettings = {
   logo:"",
@@ -234,39 +186,9 @@ const demoMembers = [
 ];
 
 const txt = {
-  en:{
-    login:"Customer Login",register:"Register Member",staff:"Staff Panel Demo",boss:"Boss Panel Demo",
-    registerTitle:"Register Member",submitRegister:"Submit Register",back:"Back",
-    memberTitle:"Member Dashboard",currentPoints:"Current Points",openWA:"Open WhatsApp",logout:"Logout",
-    staffPanel:"Staff Panel Demo",submit:"Submit",
-    bossTitle:"Boss Dashboard Demo",refresh:"Refresh Customer List",csv:"Download Customer CSV",updatePoints:"Update Points",
-    sendAll:"Send WhatsApp To All Customers",
-    whatsapp:"WhatsApp Message",saveWA:"Save WhatsApp Message",
-    brand:"Brand Settings",uploadLogo:"Upload Logo",uploadBg:"Upload Background Photo",clear:"Clear Logo & Background",
-    consent:"I agree to allow this business to collect and use my information for membership points and customer service purposes."
-  },
-  zh:{
-    login:"顾客登入",register:"注册会员",staff:"员工后台 Demo",boss:"老板后台 Demo",
-    registerTitle:"注册会员",submitRegister:"提交注册",back:"返回",
-    memberTitle:"会员资料",currentPoints:"目前积分",openWA:"打开 WhatsApp",logout:"退出",
-    staffPanel:"员工后台 Demo",submit:"提交",
-    bossTitle:"老板后台 Demo",refresh:"刷新顾客名单",csv:"下载顾客 CSV",updatePoints:"更新积分",
-    sendAll:"一键发送 WhatsApp 给全部顾客",
-    whatsapp:"WhatsApp 信息",saveWA:"保存 WhatsApp 信息",
-    brand:"品牌设置",uploadLogo:"上传 Logo",uploadBg:"上传背景照片",clear:"清除 Logo 和背景",
-    consent:"我同意商家收集和使用我的资料，用于会员积分和客户服务用途。"
-  },
-  ms:{
-    login:"Log Masuk Pelanggan",register:"Daftar Ahli",staff:"Panel Staff Demo",boss:"Panel Boss Demo",
-    registerTitle:"Daftar Ahli",submitRegister:"Hantar Daftar",back:"Kembali",
-    memberTitle:"Dashboard Ahli",currentPoints:"Mata Semasa",openWA:"Buka WhatsApp",logout:"Log Keluar",
-    staffPanel:"Panel Staff Demo",submit:"Hantar",
-    bossTitle:"Dashboard Boss Demo",refresh:"Segar Semula Senarai Pelanggan",csv:"Muat Turun CSV Pelanggan",updatePoints:"Kemaskini Mata",
-    sendAll:"Hantar WhatsApp Kepada Semua Pelanggan",
-    whatsapp:"Mesej WhatsApp",saveWA:"Simpan Mesej WhatsApp",
-    brand:"Tetapan Jenama",uploadLogo:"Muat Naik Logo",uploadBg:"Muat Naik Gambar Latar",clear:"Padam Logo & Latar",
-    consent:"Saya bersetuju membenarkan perniagaan ini mengumpul dan menggunakan maklumat saya untuk tujuan mata ganjaran dan khidmat pelanggan."
-  }
+  en:{login:"Customer Login",register:"Register Member",staff:"Staff Panel Demo",boss:"Boss Panel Demo",registerTitle:"Register Member",submitRegister:"Submit Register",back:"Back",memberTitle:"Member Dashboard",currentPoints:"Current Points",openWA:"Open WhatsApp",logout:"Logout",staffPanel:"Staff Panel Demo",submit:"Submit",bossTitle:"Boss Dashboard Demo",refresh:"Refresh Customer List",csv:"Download Customer CSV",updatePoints:"Update Points",whatsapp:"WhatsApp Message",saveWA:"Save WhatsApp Message",brand:"Brand Settings",uploadLogo:"Upload Logo",uploadBg:"Upload Background Photo",clear:"Clear Logo & Background",consent:"I agree to allow this business to collect and use my information for membership points and customer service purposes."},
+  zh:{login:"顾客登入",register:"注册会员",staff:"员工后台 Demo",boss:"老板后台 Demo",registerTitle:"注册会员",submitRegister:"提交注册",back:"返回",memberTitle:"会员资料",currentPoints:"目前积分",openWA:"打开 WhatsApp",logout:"退出",staffPanel:"员工后台 Demo",submit:"提交",bossTitle:"老板后台 Demo",refresh:"刷新顾客名单",csv:"下载顾客 CSV",updatePoints:"更新积分",whatsapp:"WhatsApp 信息",saveWA:"保存 WhatsApp 信息",brand:"品牌设置",uploadLogo:"上传 Logo",uploadBg:"上传背景照片",clear:"清除 Logo 和背景",consent:"我同意商家收集和使用我的资料，用于会员积分和客户服务用途。"},
+  ms:{login:"Log Masuk Pelanggan",register:"Daftar Ahli",staff:"Panel Staff Demo",boss:"Panel Boss Demo",registerTitle:"Daftar Ahli",submitRegister:"Hantar Daftar",back:"Kembali",memberTitle:"Dashboard Ahli",currentPoints:"Mata Semasa",openWA:"Buka WhatsApp",logout:"Log Keluar",staffPanel:"Panel Staff Demo",submit:"Hantar",bossTitle:"Dashboard Boss Demo",refresh:"Segar Semula Senarai Pelanggan",csv:"Muat Turun CSV Pelanggan",updatePoints:"Kemaskini Mata",whatsapp:"Mesej WhatsApp",saveWA:"Simpan Mesej WhatsApp",brand:"Tetapan Jenama",uploadLogo:"Muat Naik Logo",uploadBg:"Muat Naik Gambar Latar",clear:"Padam Logo & Latar",consent:"Saya bersetuju membenarkan perniagaan ini mengumpul dan menggunakan maklumat saya untuk tujuan mata ganjaran dan khidmat pelanggan."}
 };
 
 async function seedDemoMembers(){
@@ -274,12 +196,7 @@ async function seedDemoMembers(){
     const ref = doc(db,"members",m.phone);
     const snap = await getDoc(ref);
     if(!snap.exists()){
-      await setDoc(ref,{
-        ...m,
-        consent:true,
-        demo:true,
-        createdAt:new Date().toLocaleString()
-      });
+      await setDoc(ref,{...m,consent:true,demo:true,createdAt:new Date().toLocaleString()});
     }
   }
 }
@@ -287,13 +204,8 @@ async function seedDemoMembers(){
 async function loadSettings(){
   const ref = doc(db,"settings","main");
   const snap = await getDoc(ref);
-
-  if(snap.exists()){
-    appSettings = {...appSettings, ...snap.data()};
-  }else{
-    await setDoc(ref,appSettings);
-  }
-
+  if(snap.exists()){appSettings = {...appSettings,...snap.data()};}
+  else{await setDoc(ref,appSettings);}
   await seedDemoMembers();
   applyBranding();
   applyLanguage();
@@ -301,80 +213,35 @@ async function loadSettings(){
 
 function applyLanguage(){
   const t = txt[currentLang];
-
-  btnLogin.innerText=t.login;
-  btnRegister.innerText=t.register;
-  btnStaff.innerText=t.staff;
-  btnBoss.innerText=t.boss;
-  registerTitle.innerText=t.registerTitle;
-  btnSubmitRegister.innerText=t.submitRegister;
-  btnBack1.innerText=t.back;
-  memberTitle.innerText=t.memberTitle;
-  currentPointsText.innerText=t.currentPoints;
-  memberWhatsappBtn.innerText=t.openWA;
-  btnLogout1.innerText=t.logout;
-  staffPanelTitle.innerText=t.staffPanel;
-  btnSubmitPoints.innerText=t.submit;
-  btnLogout2.innerText=t.logout;
-  bossTitle.innerText=t.bossTitle;
-  btnRefresh.innerText=t.refresh;
-  btnCSV.innerText=t.csv;
-  btnSendAll.innerText=t.sendAll;
-  btnUpdatePoints.innerText=t.updatePoints;
-  whatsappSettingTitle.innerText=t.whatsapp;
-  btnSaveWhatsapp.innerText=t.saveWA;
-  brandSettingTitle.innerText=t.brand;
-  btnUploadLogo.innerText=t.uploadLogo;
-  btnUploadBg.innerText=t.uploadBg;
-  btnClearBrand.innerText=t.clear;
-  btnLogout3.innerText=t.logout;
-  consentText.innerText=t.consent;
-
+  btnLogin.innerText=t.login; btnRegister.innerText=t.register; btnStaff.innerText=t.staff; btnBoss.innerText=t.boss;
+  registerTitle.innerText=t.registerTitle; btnSubmitRegister.innerText=t.submitRegister; btnBack1.innerText=t.back;
+  memberTitle.innerText=t.memberTitle; currentPointsText.innerText=t.currentPoints; memberWhatsappBtn.innerText=t.openWA; btnLogout1.innerText=t.logout;
+  staffPanelTitle.innerText=t.staffPanel; btnSubmitPoints.innerText=t.submit; btnLogout2.innerText=t.logout;
+  bossTitle.innerText=t.bossTitle; btnRefresh.innerText=t.refresh; btnCSV.innerText=t.csv; btnUpdatePoints.innerText=t.updatePoints;
+  whatsappSettingTitle.innerText=t.whatsapp; btnSaveWhatsapp.innerText=t.saveWA; brandSettingTitle.innerText=t.brand; btnUploadLogo.innerText=t.uploadLogo; btnUploadBg.innerText=t.uploadBg; btnClearBrand.innerText=t.clear; btnLogout3.innerText=t.logout; consentText.innerText=t.consent;
   whatsappMessageInput.value = appSettings.whatsappMessage?.[currentLang] || "";
   promoLinkInput.value = appSettings.promoLink || "";
-
+  updateSendProgress();
   if(allMembers.length>0) renderCustomerTable();
 }
 
-window.changeLanguage=function(){
-  currentLang=languageSelect.value;
-  applyLanguage();
-}
+window.changeLanguage=function(){currentLang=languageSelect.value;applyLanguage();}
 
 function applyBranding(){
   ["logo1","logo2","logo3","logo5","logo7"].forEach(id=>{
     const img=document.getElementById(id);
-    if(appSettings.logo){
-      img.src=appSettings.logo;
-      img.classList.remove("hidden");
-    }else{
-      img.classList.add("hidden");
-    }
+    if(appSettings.logo){img.src=appSettings.logo;img.classList.remove("hidden");}
+    else{img.classList.add("hidden");}
   });
-
-  if(appSettings.background){
-    document.body.style.backgroundImage=`url(${appSettings.background})`;
-  }
+  if(appSettings.background){document.body.style.backgroundImage=`url(${appSettings.background})`;}
 }
 
-function hideAll(){
-  ["loginPage","registerPage","dashboardPage","staffPage","bossPage"]
-  .forEach(id=>document.getElementById(id).classList.add("hidden"));
-}
-
-function normalizePhone(phone){
-  phone=String(phone).replace(/\D/g,"");
-  if(phone.startsWith("0")) phone="6"+phone;
-  if(phone.startsWith("60")) return phone;
-  return "60"+phone;
-}
+function hideAll(){["loginPage","registerPage","dashboardPage","staffPage","bossPage"].forEach(id=>document.getElementById(id).classList.add("hidden"));}
+function normalizePhone(phone){phone=String(phone).replace(/\D/g,"");if(phone.startsWith("0")) phone="6"+phone;if(phone.startsWith("60")) return phone;return "60"+phone;}
 
 function makeMessage(member){
   let template=appSettings.whatsappMessage?.[currentLang] || appSettings.whatsappMessage.en;
-  return template
-    .replaceAll("{name}",member.name||"")
-    .replaceAll("{points}",member.points||0)
-    .replaceAll("{promoLink}",appSettings.promoLink||"");
+  return template.replaceAll("{name}",member.name||"").replaceAll("{points}",member.points||0).replaceAll("{promoLink}",appSettings.promoLink||"");
 }
 
 function waLink(member){
@@ -392,65 +259,28 @@ function fileToBase64(file,maxKB){
   });
 }
 
-window.showRegisterPage=function(){
-  hideAll();
-  registerPage.classList.remove("hidden");
-}
-
-window.showStaffPage=function(){
-  hideAll();
-  staffPage.classList.remove("hidden");
-}
-
+window.showRegisterPage=function(){hideAll();registerPage.classList.remove("hidden");}
+window.showStaffPage=function(){hideAll();staffPage.classList.remove("hidden");}
 window.showBossPage=async function(){
-  hideAll();
-  bossPage.classList.remove("hidden");
+  hideAll(); bossPage.classList.remove("hidden");
   whatsappMessageInput.value=appSettings.whatsappMessage?.[currentLang] || "";
   promoLinkInput.value=appSettings.promoLink || "";
   await loadAllMembers();
 }
-
-window.backToLogin=function(){
-  hideAll();
-  loginPage.classList.remove("hidden");
-}
-
-window.logout=function(){
-  hideAll();
-  loginPage.classList.remove("hidden");
-}
+window.backToLogin=function(){hideAll();loginPage.classList.remove("hidden");}
+window.logout=function(){hideAll();loginPage.classList.remove("hidden");}
 
 window.registerMember=async function(){
   let name=regName.value.trim();
   let phone=normalizePhone(regPhone.value);
   let email=regEmail.value.trim().toLowerCase();
-
-  if(!name || !phone || !email){
-    alert("Please fill all info");
-    return;
-  }
-
-  if(!consentCheckbox.checked){
-    alert("Please agree to the consent");
-    return;
-  }
-
+  if(!name||!phone||!email){alert("Please fill all info");return;}
+  if(!consentCheckbox.checked){alert("Please agree to the consent");return;}
   const phoneSnap=await getDoc(doc(db,"members",phone));
-  if(phoneSnap.exists()){
-    alert("Phone already registered");
-    return;
-  }
-
+  if(phoneSnap.exists()){alert("Phone already registered");return;}
   const emailSnap=await getDocs(query(collection(db,"members"),where("email","==",email)));
-  if(!emailSnap.empty){
-    alert("Email already registered");
-    return;
-  }
-
-  await setDoc(doc(db,"members",phone),{
-    name,phone,email,points:0,consent:true,demo:false,createdAt:new Date().toLocaleString()
-  });
-
+  if(!emailSnap.empty){alert("Email already registered");return;}
+  await setDoc(doc(db,"members",phone),{name,phone,email,points:0,consent:true,demo:false,createdAt:new Date().toLocaleString()});
   alert("Member Registered");
   backToLogin();
 }
@@ -458,16 +288,9 @@ window.registerMember=async function(){
 window.login=async function(){
   let phone=normalizePhone(loginPhone.value);
   const snap=await getDoc(doc(db,"members",phone));
-
-  if(!snap.exists()){
-    alert("Member not found. Try demo phone: 60111111111");
-    return;
-  }
-
+  if(!snap.exists()){alert("Member not found. Try demo phone: 60111111111");return;}
   let m=snap.data();
-  hideAll();
-  dashboardPage.classList.remove("hidden");
-
+  hideAll(); dashboardPage.classList.remove("hidden");
   pointsText.innerText=m.points||0;
   memberInfo.innerText=`${m.name}\n${m.phone}\n${m.email}`;
   memberWhatsappBtn.onclick=()=>window.open(waLink(m),"_blank");
@@ -477,28 +300,12 @@ window.processPoints=async function(){
   let phone=normalizePhone(customerPhone.value);
   let amount=Number(pointAmount.value);
   let action=staffAction.value;
-
   const ref=doc(db,"members",phone);
   const snap=await getDoc(ref);
-
-  if(!snap.exists()){
-    alert("Customer not found");
-    return;
-  }
-
+  if(!snap.exists()){alert("Customer not found");return;}
   let m=snap.data();
   let points=Number(m.points||0);
-
-  if(action==="add"){
-    points+=amount;
-  }else{
-    if(points<amount){
-      alert("Not enough points");
-      return;
-    }
-    points-=amount;
-  }
-
+  if(action==="add"){points+=amount;}else{if(points<amount){alert("Not enough points");return;}points-=amount;}
   await updateDoc(ref,{points});
   staffResult.classList.remove("hidden");
   staffCustomerName.innerText=m.name;
@@ -510,66 +317,70 @@ window.loadAllMembers=async function(){
   const snap=await getDocs(collection(db,"members"));
   allMembers=[];
   snap.forEach(d=>allMembers.push(d.data()));
+  allMembers.sort((a,b)=>(a.name||"").localeCompare(b.name||""));
   renderCustomerTable();
+  updateSendProgress();
 }
 
 function renderCustomerTable(){
   let html=`<table><tr><th>Name</th><th>Phone</th><th>Points</th><th>WA</th></tr>`;
-
   allMembers.forEach(m=>{
-    html+=`
-      <tr>
-        <td>${m.name||""}</td>
-        <td>${m.phone||""}</td>
-        <td>${m.points||0}</td>
-        <td><button class="wa" onclick='openWA(${JSON.stringify(m)})'>WA</button></td>
-      </tr>
-    `;
+    html+=`<tr>
+      <td>${m.name||""}</td>
+      <td>${m.phone||""}</td>
+      <td>${m.points||0}</td>
+      <td><button class="wa" onclick='openWA(${JSON.stringify(m)})'>Send</button></td>
+    </tr>`;
   });
-
   html+=`</table>`;
   customerTable.innerHTML=html;
 }
 
-window.openWA=function(member){
-  window.open(waLink(member),"_blank");
+window.openWA=function(member){window.open(waLink(member),"_blank");}
+
+function updateSendProgress(){
+  if(!sendProgress) return;
+  if(allMembers.length===0){
+    sendProgress.innerText="Press Refresh Customer List first.";
+    return;
+  }
+  if(sendIndex>=allMembers.length){
+    sendProgress.innerText=`All customers completed. Total: ${allMembers.length}`;
+    btnNextWA.innerText="Completed - Reset To Send Again";
+    return;
+  }
+  const next=allMembers[sendIndex];
+  sendProgress.innerText=`Next: ${next.name} (${sendIndex+1}/${allMembers.length})`;
+  btnNextWA.innerText=`Send Next WhatsApp: ${next.name}`;
 }
 
-window.sendToAllCustomers=function(){
-  if(allMembers.length === 0){
+window.sendNextCustomer=function(){
+  if(allMembers.length===0){
     alert("Please refresh customer list first.");
     return;
   }
+  if(sendIndex>=allMembers.length){
+    alert("All customers completed. Please reset sending progress.");
+    return;
+  }
+  const member=allMembers[sendIndex];
+  window.open(waLink(member),"_blank");
+  sendIndex++;
+  updateSendProgress();
+}
 
-  const confirmSend = confirm(
-    "This will open WhatsApp tabs for all customers. Please allow pop-ups in your browser. Continue?"
-  );
-
-  if(!confirmSend) return;
-
-  let delay = 0;
-
-  allMembers.forEach((member,index)=>{
-    setTimeout(()=>{
-      window.open(waLink(member),"_blank");
-    },delay);
-
-    delay += 900;
-  });
+window.resetSendProgress=function(){
+  sendIndex=0;
+  updateSendProgress();
+  alert("Sending progress reset.");
 }
 
 window.setPoints=async function(){
   let phone=normalizePhone(bossCustomerPhone.value);
   let newPoints=Number(bossNewPoints.value);
-
   const ref=doc(db,"members",phone);
   const snap=await getDoc(ref);
-
-  if(!snap.exists()){
-    alert("Customer not found");
-    return;
-  }
-
+  if(!snap.exists()){alert("Customer not found");return;}
   await updateDoc(ref,{points:newPoints});
   alert("Points Updated");
   loadAllMembers();
@@ -578,12 +389,7 @@ window.setPoints=async function(){
 window.saveWhatsappMessage=async function(){
   appSettings.whatsappMessage[currentLang]=whatsappMessageInput.value;
   appSettings.promoLink=promoLinkInput.value.trim();
-
-  await updateDoc(doc(db,"settings","main"),{
-    whatsappMessage:appSettings.whatsappMessage,
-    promoLink:appSettings.promoLink
-  });
-
+  await updateDoc(doc(db,"settings","main"),{whatsappMessage:appSettings.whatsappMessage,promoLink:appSettings.promoLink});
   alert("WhatsApp message saved");
 }
 
@@ -594,9 +400,7 @@ window.uploadLogo=async function(){
     await updateDoc(doc(db,"settings","main"),{logo:base64});
     applyBranding();
     alert("Logo uploaded");
-  }catch(e){
-    alert("Logo must be under 300KB");
-  }
+  }catch(e){alert("Logo must be under 300KB");}
 }
 
 window.uploadBackground=async function(){
@@ -606,9 +410,7 @@ window.uploadBackground=async function(){
     await updateDoc(doc(db,"settings","main"),{background:base64});
     applyBranding();
     alert("Background uploaded");
-  }catch(e){
-    alert("Background must be under 800KB");
-  }
+  }catch(e){alert("Background must be under 800KB");}
 }
 
 window.clearBranding=async function(){
@@ -620,10 +422,7 @@ window.clearBranding=async function(){
 
 window.downloadCSV=function(){
   let csv="Name,Phone,Email,Points,Demo\n";
-  allMembers.forEach(m=>{
-    csv+=`${m.name},${m.phone},${m.email},${m.points},${m.demo||false}\n`;
-  });
-
+  allMembers.forEach(m=>{csv+=`${m.name},${m.phone},${m.email},${m.points},${m.demo||false}\n`;});
   let blob=new Blob([csv],{type:"text/csv"});
   let link=document.createElement("a");
   link.href=URL.createObjectURL(blob);
