@@ -156,6 +156,7 @@ th{background:#fff3d8;}
 
 <button class="purple" onclick="loadAllMembers()" id="btnRefresh">Refresh Customer List</button>
 <button class="green" onclick="downloadCSV()" id="btnCSV">Download Customer CSV</button>
+<button class="wa" onclick="sendToAllCustomers()" id="btnSendAll">Send WhatsApp To All Customers</button>
 
 <input type="text" id="bossCustomerPhone" placeholder="Customer Phone">
 <input type="number" id="bossNewPoints" placeholder="Set New Points">
@@ -239,6 +240,7 @@ const txt = {
     memberTitle:"Member Dashboard",currentPoints:"Current Points",openWA:"Open WhatsApp",logout:"Logout",
     staffPanel:"Staff Panel Demo",submit:"Submit",
     bossTitle:"Boss Dashboard Demo",refresh:"Refresh Customer List",csv:"Download Customer CSV",updatePoints:"Update Points",
+    sendAll:"Send WhatsApp To All Customers",
     whatsapp:"WhatsApp Message",saveWA:"Save WhatsApp Message",
     brand:"Brand Settings",uploadLogo:"Upload Logo",uploadBg:"Upload Background Photo",clear:"Clear Logo & Background",
     consent:"I agree to allow this business to collect and use my information for membership points and customer service purposes."
@@ -249,6 +251,7 @@ const txt = {
     memberTitle:"会员资料",currentPoints:"目前积分",openWA:"打开 WhatsApp",logout:"退出",
     staffPanel:"员工后台 Demo",submit:"提交",
     bossTitle:"老板后台 Demo",refresh:"刷新顾客名单",csv:"下载顾客 CSV",updatePoints:"更新积分",
+    sendAll:"一键发送 WhatsApp 给全部顾客",
     whatsapp:"WhatsApp 信息",saveWA:"保存 WhatsApp 信息",
     brand:"品牌设置",uploadLogo:"上传 Logo",uploadBg:"上传背景照片",clear:"清除 Logo 和背景",
     consent:"我同意商家收集和使用我的资料，用于会员积分和客户服务用途。"
@@ -259,6 +262,7 @@ const txt = {
     memberTitle:"Dashboard Ahli",currentPoints:"Mata Semasa",openWA:"Buka WhatsApp",logout:"Log Keluar",
     staffPanel:"Panel Staff Demo",submit:"Hantar",
     bossTitle:"Dashboard Boss Demo",refresh:"Segar Semula Senarai Pelanggan",csv:"Muat Turun CSV Pelanggan",updatePoints:"Kemaskini Mata",
+    sendAll:"Hantar WhatsApp Kepada Semua Pelanggan",
     whatsapp:"Mesej WhatsApp",saveWA:"Simpan Mesej WhatsApp",
     brand:"Tetapan Jenama",uploadLogo:"Muat Naik Logo",uploadBg:"Muat Naik Gambar Latar",clear:"Padam Logo & Latar",
     consent:"Saya bersetuju membenarkan perniagaan ini mengumpul dan menggunakan maklumat saya untuk tujuan mata ganjaran dan khidmat pelanggan."
@@ -315,6 +319,7 @@ function applyLanguage(){
   bossTitle.innerText=t.bossTitle;
   btnRefresh.innerText=t.refresh;
   btnCSV.innerText=t.csv;
+  btnSendAll.innerText=t.sendAll;
   btnUpdatePoints.innerText=t.updatePoints;
   whatsappSettingTitle.innerText=t.whatsapp;
   btnSaveWhatsapp.innerText=t.saveWA;
@@ -528,6 +533,29 @@ function renderCustomerTable(){
 
 window.openWA=function(member){
   window.open(waLink(member),"_blank");
+}
+
+window.sendToAllCustomers=function(){
+  if(allMembers.length === 0){
+    alert("Please refresh customer list first.");
+    return;
+  }
+
+  const confirmSend = confirm(
+    "This will open WhatsApp tabs for all customers. Please allow pop-ups in your browser. Continue?"
+  );
+
+  if(!confirmSend) return;
+
+  let delay = 0;
+
+  allMembers.forEach((member,index)=>{
+    setTimeout(()=>{
+      window.open(waLink(member),"_blank");
+    },delay);
+
+    delay += 900;
+  });
 }
 
 window.setPoints=async function(){
